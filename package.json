@@ -1,0 +1,19 @@
+{
+  "name": "buscador-filtro-vue",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Subprograma de demo — buscador/filtro en vivo hecho con Vue 3 (Composition API) para la PoC Vue.js vs React.",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "vue": "^3.4.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.0.0",
+    "vite": "^5.0.0"
+  }
+}

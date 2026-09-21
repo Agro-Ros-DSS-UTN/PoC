@@ -1,48 +1,52 @@
-# Vue.js vs React — Prueba de Concepto (PoC)
+# Buscador / filtro en vivo — subprograma de demo
 
-PoC académica que compara **Vue.js** y **React** mediante la implementación de un proyecto de pequeña escala equivalente en ambos frameworks, evaluando curva de aprendizaje, arquitectura, rendimiento y ecosistema.
+Mini app en Vue 3 (Composition API) que muestra un buscador con filtro por
+categoría sobre un catálogo de tecnologías del ecosistema Vue y React. Sirve
+como ejemplo corto para mostrar reactividad en vivo durante la PoC.
 
-Este repositorio contiene la parte correspondiente al grupo de **Vue.js**, desarrollada en conjunto con el grupo de React para la presentación final.
+## Qué muestra
 
-## Sobre este proyecto
+- `ref` para el texto de búsqueda y la categoría activa.
+- `computed` para la lista filtrada, que se recalcula sola cada vez que
+  cambia el texto o la categoría (sin tocar el DOM a mano).
+- Componentes chicos y con una sola responsabilidad (`BuscadorInput`,
+  `FiltroCategorias`, `ListaResultados`, `TarjetaTecnologia`), comunicados
+  por props y eventos (`v-model` propio con `update:modelValue`, `@cambiar`).
+- `v-for` con `:key` para la lista de resultados y el estado vacío con `v-if`.
 
-Como parte del trabajo práctico de PoC de la cátedra, este grupo investiga y evalúa Vue.js frente a React, dos de los frameworks de frontend más utilizados actualmente. El objetivo no es determinar "cuál es mejor" en abstracto, sino dar evidencia concreta —más allá de la teoría— sobre en qué escenarios conviene elegir uno u otro.
-
-## Objetivo
-
-Investigar y evaluar Vue.js como alternativa de framework de frontend, comparándolo directamente con React, para determinar en qué escenarios conviene elegir uno u otro, e implementar un proyecto equivalente en ambas tecnologías para comparar en igualdad de condiciones.
-
-## Criterios de evaluación
-
-| Características técnicas | Proceso de desarrollo |
-| --- | --- |
-| Rendimiento y tamaño de bundle | Documentación oficial disponible |
-| Modelo de reactividad y arquitectura | Tamaño y actividad de la comunidad |
-| Sintaxis y curva de aprendizaje | Oferta y demanda de desarrolladores |
-| Soporte de TypeScript | Soporte y frecuencia de actualizaciones |
-| Herramientas de build y tooling | Adopción real por empresas |
-
-## Stack tecnológico
-
-- [Vue.js 3](https://vuejs.org/) — Composition API
-- [Vite](https://vite.dev/) — build tool y dev server
-- [Vue Router](https://router.vuejs.org/) — ruteo
-- [Pinia](https://pinia.vuejs.org/) — manejo de estado
-- TypeScript
-
-## Estructura del repositorio
+## Estructura de carpetas
 
 ```
-PoC/
-├── src/            # Código fuente de la app Vue.js
-├── docs/           # Informe, guía de temas y material de apoyo
-├── presentacion/   # Slides de la PoC
-└── README.md
+buscador-filtro/
+├── index.html            # punto de entrada de Vite
+├── package.json
+├── vite.config.js
+├── README.md
+└── src/
+    ├── main.js            # createApp(App).mount('#app')
+    ├── App.vue            # estado (ref/computed) y layout general
+    ├── style.css
+    ├── data/
+    │   └── tecnologias.js # catálogo de ejemplo (hardcodeado)
+    └── components/
+        ├── BuscadorInput.vue
+        ├── FiltroCategorias.vue
+        ├── ListaResultados.vue
+        └── TarjetaTecnologia.vue
 ```
 
-## Integrantes
+## Cómo correrlo
 
-- Mateo Jager
-- Fernandez Gonzalez Manuel
-- Marco Torrezan
-- Victoria Oertlin
+```bash
+npm install
+npm run dev
+```
+
+Y abrir la URL que muestra la terminal (por defecto `http://localhost:5173`).
+
+## Alternativa sin instalar nada
+
+Si solo se quiere mostrar la demo rápido (por ejemplo durante la PoC, sin
+`npm install` de por medio), está la versión equivalente en un único archivo
+HTML, que carga Vue desde un CDN y corre con solo abrirla en el navegador:
+`../buscador_filtro.html`.
