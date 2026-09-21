@@ -23,26 +23,27 @@ defineEmits(["cambiar"]);
 <style scoped>
 .chips {
   display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
+  align-items: center;
+  gap: 2px;
+  flex-shrink: 0;
 }
 .chip {
-  border: 1px solid #d6e2df;
-  background: #ffffff;
-  color: #5b6b73;
-  border-radius: 999px;
-  padding: 6px 16px;
-  font-size: 13px;
-  font-weight: 600;
+  border: none;
+  background: transparent;
+  color: #a1a1aa;
+  border-radius: 8px;
+  padding: 6px 12px;
+  font-size: 12.5px;
+  font-weight: 500;
   cursor: pointer;
-  transition: background 0.15s, color 0.15s, border-color 0.15s;
+  transition: background 0.15s, color 0.15s;
 }
 .chip:hover {
-  border-color: #42b883;
+  color: #e4e4e7;
+  background: rgba(38, 38, 41, 0.6);
 }
 .chip.activo {
-  background: #42b883;
-  border-color: #42b883;
+  background: #27272a;
   color: #ffffff;
 }
 </style>

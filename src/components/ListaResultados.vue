@@ -7,16 +7,16 @@ defineProps({
 </script>
 
 <template>
-  <ul class="lista">
+  <TransitionGroup tag="ul" name="fila" class="lista">
     <TarjetaTecnologia
       v-for="tec in resultados"
       :key="tec.id"
       :tecnologia="tec"
     />
-    <li v-if="resultados.length === 0" class="vacio">
+    <li v-if="resultados.length === 0" key="vacio" class="vacio">
       No encontramos nada con ese criterio.
     </li>
-  </ul>
+  </TransitionGroup>
 </template>
 
 <style scoped>
@@ -26,12 +26,27 @@ defineProps({
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 1px;
 }
 .vacio {
-  padding: 24px 12px;
+  padding: 28px 12px;
   text-align: center;
-  color: #9aa8a5;
+  color: #71717a;
   font-size: 13px;
+}
+
+.fila-enter-active,
+.fila-leave-active,
+.fila-move {
+  transition: opacity 0.18s ease, transform 0.18s ease;
+}
+.fila-enter-from,
+.fila-leave-to {
+  opacity: 0;
+  transform: translateY(-4px);
+}
+.fila-leave-active {
+  position: absolute;
+  width: 100%;
 }
 </style>

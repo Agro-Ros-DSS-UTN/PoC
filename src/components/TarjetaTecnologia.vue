@@ -6,21 +6,23 @@ defineProps({
 const colorPorCategoria = {
   Vue: "#42b883",
   React: "#61dafb",
-  Ambos: "#8a7ff0",
+  Ambos: "#a78bfa",
 };
 </script>
 
 <template>
   <li class="tarjeta">
-    <span
-      class="badge"
-      :style="{ background: colorPorCategoria[tecnologia.categoria] }"
-    >
-      {{ tecnologia.categoria }}
-    </span>
-    <div class="contenido">
-      <p class="nombre">{{ tecnologia.nombre }}</p>
-      <p class="descripcion">{{ tecnologia.descripcion }}</p>
+    <div class="izquierda">
+      <span
+        class="badge"
+        :style="{ color: colorPorCategoria[tecnologia.categoria], borderColor: colorPorCategoria[tecnologia.categoria] }"
+      >
+        {{ tecnologia.categoria }}
+      </span>
+      <div class="contenido">
+        <p class="nombre">{{ tecnologia.nombre }}</p>
+        <p class="descripcion">{{ tecnologia.descripcion }}</p>
+      </div>
     </div>
     <span class="tipo">{{ tecnologia.tipo }}</span>
   </li>
@@ -30,37 +32,51 @@ const colorPorCategoria = {
 .tarjeta {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 12px;
-  padding: 10px 12px;
+  padding: 11px 8px;
   border-radius: 10px;
+  transition: background 0.15s;
 }
 .tarjeta:hover {
-  background: #f7faf9;
+  background: rgba(38, 38, 41, 0.5);
+}
+.izquierda {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-width: 0;
 }
 .badge {
   flex-shrink: 0;
-  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 30px;
+  min-width: 52px;
+  padding: 0 8px;
+  border: 1px solid;
+  border-radius: 6px;
+  background: #18181b;
+  font-family: "SFMono-Regular", Consolas, monospace;
   font-size: 10.5px;
   font-weight: 700;
-  padding: 4px 9px;
-  border-radius: 999px;
-  min-width: 46px;
-  text-align: center;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
 }
 .contenido {
-  flex: 1;
   min-width: 0;
 }
 .nombre {
   margin: 0;
-  font-size: 14px;
-  font-weight: 600;
-  color: #1e2a33;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: #f4f4f5;
 }
 .descripcion {
   margin: 2px 0 0;
-  font-size: 12px;
-  color: #5b6b73;
+  font-size: 11.5px;
+  color: #71717a;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -68,6 +84,9 @@ const colorPorCategoria = {
 .tipo {
   flex-shrink: 0;
   font-size: 11px;
-  color: #9aa8a5;
+  color: #a1a1aa;
+  border: 1px solid #27272a;
+  border-radius: 999px;
+  padding: 4px 10px;
 }
 </style>
