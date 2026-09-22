@@ -27,6 +27,20 @@ defineProps({
   display: flex;
   flex-direction: column;
   gap: 1px;
+  max-height: 320px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #3f3f46 transparent;
+}
+.lista::-webkit-scrollbar {
+  width: 8px;
+}
+.lista::-webkit-scrollbar-thumb {
+  background: #3f3f46;
+  border-radius: 999px;
+}
+.lista::-webkit-scrollbar-track {
+  background: transparent;
 }
 .vacio {
   padding: 28px 12px;

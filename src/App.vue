@@ -5,6 +5,7 @@ import { useDebounce } from "./composables/useDebounce.js";
 import BuscadorInput from "./components/BuscadorInput.vue";
 import FiltroCategorias from "./components/FiltroCategorias.vue";
 import ListaResultados from "./components/ListaResultados.vue";
+import SponsorsMarquee from "./components/SponsorsMarquee.vue";
 
 // --- Estado reactivo ---
 const busqueda = ref("");
@@ -67,6 +68,8 @@ function elegirCategoria(cat) {
       <span>Vue 3 · Composition API</span>
     </footer>
   </div>
+
+  <SponsorsMarquee />
 </template>
 
 <style scoped>
